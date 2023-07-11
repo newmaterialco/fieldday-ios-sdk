@@ -1,5 +1,5 @@
 # FieldDay iOS SDK
-![fdsdk](https://github.com/fieldday-ai/fieldday-ios-sdk/assets/58298401/3f357241-fc96-4c51-b7fa-5438b248ebc6)
+![lightdark](https://github.com/fieldday-ai/fieldday-ios-sdk/assets/58298401/acb79dd4-ff3d-49b4-b088-63b311a2be58)
 
 ## Installation
 
