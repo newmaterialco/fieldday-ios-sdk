@@ -26,8 +26,8 @@ let package = Package(
         ),
         .binaryTarget(
             name: "FieldDaySwiftUI",
-            url: "",
-            checksum: ""
+            url: "https://github.com/fieldday-ai/FieldDaySwiftUI/releases/download/0.9.0/FieldDaySwiftUI-0.9.0.zip",
+            checksum: "3a04ccfc13065e4ead12539f44b75a1945e32c83e8209bfce93af8e1e318a333"
         )
     ]
 )
