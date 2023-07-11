@@ -33,39 +33,51 @@ http://github.com/fieldday-ai/fieldday-ios-sdk.git
     -   iPhone Orientation
     -   Check only Portrait
 
-## Setup the FieldDay Viewfinder in your SwiftUI view
+## Usage
+### Add the FieldDay Viewfinder to your SwiftUI view
 
 -   In the SwiftUI View, import FieldDay
 -   In the body of your view, setup the viewfinder
 
 ```swift
+import SwiftUI
 import FieldDay
 
-FDViewfinderView(
-    projectKey: "________________________________"
-    // Enter the Project Key that we copied from FieldDay
-)
+struct ContentView: View {
+    var body: some View {
+        FDViewfinderView(
+            /// Enter the Project Key that we copied from FieldDay
+            projectKey: "________________________________"
+        )
+    }
+}
 ```
     
-## Add functionality based on predictions
+### Handle prediction events
 
-At the moment, the Viewfinder can provide you with predictions in two situations.
+At the moment, the FieldDay SDK supports handling the following events:
 -   When the model makes a prediction
--   When a prediction pill is tapped (this is the element at the bottom of the screen, with the category name for the prediction) 
+-   When a prediction pill is tapped
 
-This information can be accessed via the `onPrediction` and `onPredictionTap` modifiers on the ViewfinderView. The can be used as follows.
+*A prediction pill is the element at the bottom of the screen, showing the category name for the prediction*
+
+The events can be handled via the `onPrediction` and `onPredictionTap` modifiers on the ViewfinderView. They can be used as follows.
 
 ```swift
+import SwiftUI
 import FieldDay
 
-FDViewfinderView(...)
-    .onPrediction { modelPrediction, category in
-        print(category.name, modelPrediction.confidence)
+struct ContentView: View {
+    var body: some View {
+        FDViewfinderView(...)
+        .onPredictionTap { category in
+            print(category.name)
+        }
+        .onPrediction { prediction, category in
+            print(category.name, prediction.confidence)
+        }
     }
-    .onPredictionTap { category in
-        print(category.name)
-        // Add custom logic such as presenting a sheet with information about the category.
-    }
+}
 ```
 
 The `FDCategory` type has the following properties:
