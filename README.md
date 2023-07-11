@@ -70,12 +70,12 @@ import FieldDay
 struct ContentView: View {
     var body: some View {
         FDViewfinderView(...)
-        .onPredictionTap { category in
-            print(category.name)
-        }
-        .onPrediction { prediction, category in
-            print(category.name, prediction.confidence)
-        }
+            .onPredictionTap { category in
+                print(category.name)
+            }
+            .onPrediction { prediction, category in
+                print(category.name, prediction.confidence)
+            }
     }
 }
 ```
