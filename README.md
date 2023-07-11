@@ -1,7 +1,7 @@
 # FieldDay iOS SDK
-![fieldday-header](https://github.com/fieldday-ai/fieldday-ios-sdk/assets/58298401/04c5a285-7729-4615-be33-92804bbd259a)
+![fdsdk](https://github.com/fieldday-ai/fieldday-ios-sdk/assets/58298401/3f357241-fc96-4c51-b7fa-5438b248ebc6)
 
-## Install the SDK
+## Installation
 
 You can add FieldDay iOS SDK using Swift Package Manager.
 - From the File menu, select Add Packages...
@@ -34,7 +34,7 @@ http://github.com/fieldday-ai/fieldday-ios-sdk.git
     -   Check only Portrait
 
 ## Usage
-### Add the FieldDay Viewfinder to your SwiftUI view
+### Add the FieldDay Viewfinder
 
 -   In the SwiftUI View, import FieldDay
 -   In the body of your view, setup the viewfinder
@@ -61,7 +61,7 @@ At the moment, the FieldDay SDK supports handling the following events:
 
 *A prediction pill is the element at the bottom of the screen, showing the category name for the prediction*
 
-The events can be handled via the `onPrediction` and `onPredictionTap` modifiers on the ViewfinderView. They can be used as follows.
+These events can be handled via the `onPrediction` and `onPredictionTap` modifiers on the ViewfinderView. They can be used as follows.
 
 ```swift
 import SwiftUI
@@ -81,17 +81,32 @@ struct ContentView: View {
 ```
 
 The `FDCategory` type has the following properties:
-- `id`: `String`
-- `name`: `String`
-- `color`: `Color`
-- `isBackground`: `Bool`
+```swift
+struct FDCategory {
+    var id: String
+    var name: String
+    var color: Color
+    var isBackground: Bool
+}
+```
+- `id` - The unique identifier of the category
+- `name` - The category's name (defined in the FieldDay App)
+- `color` - The category's color (defined in the FieldDay App)
+- `isBackground` - Indicates whether the category is the default "Background" category
 
 The `FDModelPrediction` type has the following properties:
-- `identifier`: `String`
-- `confidence`: `Float`
-- `results`: `[VNClassificationObservation]` // contains confidence values for all categories in the model
+```swift
+struct FDModelPrediction {
+    var identifier: String
+    var confidence: Float
+    var results: [VNClassificationObservation]
+}
+```
+- `identifier` - The identifier returned associated with the CoreML prediction
+- `confidence` - The confidence of the prediction, normalized from `0...1`
+- `results` - Contains confidence values for all categories in the model
 
-## Updates to the Project
+## Updating your FieldDay Project
 
 You may make changes to your project, including collecting more data, updating the model, and creating new categories. 
 When your app launches and accesses your project via the Project Key, any changes will also be fetched. The package caches the project information, so it may take a few tries for the latest information to appear.  
