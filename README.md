@@ -21,7 +21,7 @@ http://github.com/fieldday-ai/fieldday-ios-sdk.git
 
 ### Prepare Xcode Project
 
--   Add the FieldDay Package (See [Installation](#installation))
+-   [Add the FieldDay Package](#installation)
 -   Provide Camera Usage Description
     -   Project > Build Settings
     -   Scroll to Info.plist Values
