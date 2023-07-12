@@ -63,7 +63,6 @@ Alternatively, you can also package a model file with your app. This has the adv
 -   Select the `CoreML` option.
 -   Tap "Export `.mlmodel`". This will give you two files – `Categories.swift` and `Project Name.mlmodel`.
 -   Add the two files to the Xcode project.
--   Find the class name for your model,
 
 ### Usage
 
