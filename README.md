@@ -80,7 +80,7 @@ struct ContentView: View {
 }
 ```
 
-### `FDCategory`
+**`FDCategory`**
 ```swift
 struct FDCategory {
     var id: String
@@ -94,7 +94,7 @@ struct FDCategory {
 - `color` - The category's color (defined in the FieldDay App)
 - `isBackground` - Indicates whether the category is the default "Background" category
 
-### `FDModelPrediction`
+**`FDModelPrediction`**
 ```swift
 struct FDModelPrediction {
     var identifier: String
