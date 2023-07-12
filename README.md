@@ -1,6 +1,5 @@
 # FieldDay iOS SDK
-
-![fdsdk](https://github.com/fieldday-ai/fieldday-ios-sdk/assets/58298401/49097712-e46d-4fa8-91b7-28c648f47926)
+![thumb](https://github.com/fieldday-ai/fieldday-ios-sdk/assets/58298401/e1b7fd85-7cd6-4449-ae1d-eed6eb4660c5)
 
 # Installation
 
@@ -30,9 +29,9 @@ http://github.com/fieldday-ai/fieldday-ios-sdk.git
 
 There are two methods to use your FieldDay project with the iOS SDK. To get started, open your project in the FieldDay app. Make sure you have trained at least one model in the project.
 
-## Method 1: Publishing your project
+## Method 1: Publish your project
 
-FieldDay allows you to publish your project so it can be fetched over the internet. Using this method, you can ensure your project is always kept up-to-date with any changes you make. The package caches the project information. Select the appropriate cache policy as per your requirements.
+FieldDay allows you to publish your project so it can be fetched over the internet. Using this method, you can ensure your project is always kept up-to-date with any changes you make. The package caches project information, so make sure to set the appropriate cache policy as per your requirements (see [Caching](#caching)).
 
 -   Tap the share button at the top right corner of the screen.
 -   Select the `CoreML` option.
@@ -98,20 +97,13 @@ _A prediction pill is the element at the bottom of the screen, showing the categ
 These events can be handled via the `onPrediction` and `onPredictionTap` modifiers on the ViewfinderView. They can be used as follows.
 
 ```swift
-import SwiftUI
-import FieldDay
-
-struct ContentView: View {
-    var body: some View {
-        FDViewfinderView(...)
-            .onPredictionTap { category in
-                print(category.name)
-            }
-            .onPrediction { prediction, category in
-                print(category.name, prediction.confidence)
-            }
+FDViewfinderView(...)
+    .onPredictionTap { category in
+        print(category.name)
     }
-}
+    .onPrediction { prediction, category in
+        print(category.name, prediction.confidence)
+    }
 ```
 
 **`FDCategory`**
@@ -144,18 +136,38 @@ struct FDModelPrediction {
 -   `confidence` - The confidence of the prediction, normalized from `0...1`
 -   `results` - Contains confidence values for all categories in the model
 
+## Caching
+When using project keys, FieldDay has an option to cache network data to offer limited offline functionality. By passing in a `FDCachePolicy` in the `FDViewfinderView` intializer, you can customize how the cache is used. If no policy is passed in, the default is `.cacheThenNetwork`.
+```swift
+FDViewfinderView(
+    ...,
+    cachePolicy: .ignoreCache
+)
+```
+
+### `FDCachePolicy`
+```swift
+enum FDCachePolicy {
+    case cacheThenNetwork
+    case ignoreCache
+    case ignoreCacheCompletely
+}
+```
+-   `cacheThenNetwork` - Fetches from the cache, then the network, and only uses the network result if it differs from the cache. This is the default policy.
+-   `ignoreCache` - Fetches from the network only, but still writes the result to the cache.
+-   `ignoreCacheCompletely` -  Fetches from the network only, and does not write the result to the cache.
+
+### Manual Cache Clearing
+If needed, the `clearFDCache()` extension on `UserDefaults` lets you manually clear the FieldDay cache.
+```swift
+UserDefaults.standard.clearFDCache()
+```
+
 ## Debugging
 
 To view debugging logs that expose error messages for various operations - just add the `.debug()` modifier to your `FDViewfinderView`. FieldDay logs will be prefixed with "🤖⚠️".
 
 ```swift
-import SwiftUI
-import FieldDay
-
-struct ContentView: View {
-    var body: some View {
-        FDViewfinderView(...)
-            .debug()
-    }
-}
+FDViewfinderView(...)
+    .debug()
 ```
