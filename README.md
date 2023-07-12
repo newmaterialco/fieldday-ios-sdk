@@ -10,7 +10,8 @@ You can add FieldDay iOS SDK using Swift Package Manager.
 http://github.com/fieldday-ai/fieldday-ios-sdk.git
 ```
 
-## Prepare your FieldDay project
+## Setup
+### Publish FieldDay Project
 
 -   Open your project in the FieldDay app. Make sure you have trained at least one model in the project.
 -   Tap the share button at the top right corner of the screen.
@@ -18,11 +19,9 @@ http://github.com/fieldday-ai/fieldday-ios-sdk.git
 -   Tap "Publish Project".
 -   Copy the alphanumeric Project Key that appears.
 
+### Prepare Xcode Project
 
-## Xcode Project
-
--   Create Xcode Project
--   Add the FieldDay Package (See Install the SDK)
+-   Add the FieldDay Package (See [Installation](#installation))
 -   Provide Camera Usage Description
     -   Project > Build Settings
     -   Scroll to Info.plist Values
