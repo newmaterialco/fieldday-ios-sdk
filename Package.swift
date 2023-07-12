@@ -24,7 +24,7 @@ let package = Package(
         .binaryTarget(
             name: "FieldDay",
             url: "https://github.com/fieldday-ai/fieldday-ios-sdk/releases/download/0.9.4/FieldDay-0.9.4.zip",
-            checksum: "322d0e40751ead62d71d806fa8b8b0f96940d33f353118ff8c2ee0089aed015d"
+            checksum: "2e335cced7ff72e84131ef5050e364cac4382f5528639deaf57406ed65c2eb27"
         )
     ]
 )
