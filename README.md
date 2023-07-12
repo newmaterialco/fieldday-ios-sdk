@@ -3,7 +3,7 @@
 
 ## Installation
 
-You can add FieldDay iOS SDK using Swift Package Manager.
+You can add the FieldDay iOS SDK using Swift Package Manager.
 - From the File menu, select Add Packages...
 - Enter the repo's URL
 ```
