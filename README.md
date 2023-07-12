@@ -80,7 +80,7 @@ struct ContentView: View {
 }
 ```
 
-The `FDCategory` type has the following properties:
+### `FDCategory`
 ```swift
 struct FDCategory {
     var id: String
@@ -94,7 +94,7 @@ struct FDCategory {
 - `color` - The category's color (defined in the FieldDay App)
 - `isBackground` - Indicates whether the category is the default "Background" category
 
-The `FDModelPrediction` type has the following properties:
+### `FDModelPrediction`
 ```swift
 struct FDModelPrediction {
     var identifier: String
@@ -105,6 +105,20 @@ struct FDModelPrediction {
 - `identifier` - The identifier returned associated with the CoreML prediction
 - `confidence` - The confidence of the prediction, normalized from `0...1`
 - `results` - Contains confidence values for all categories in the model
+
+### Debugging
+To view debugging logs that expose error messages for project loading, model loading or model inferencing operations - just add the `.debug` modifier to your FDViewfinderView.
+```swift
+import SwiftUI
+import FieldDay
+
+struct ContentView: View {
+    var body: some View {
+        FDViewfinderView(...)
+            .debug()
+    }
+}
+```
 
 ## Updating your FieldDay Project
 
