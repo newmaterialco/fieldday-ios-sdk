@@ -106,7 +106,7 @@ struct FDModelPrediction {
 - `results` - Contains confidence values for all categories in the model
 
 ### Debugging
-To view debugging logs that expose error messages for project loading, model loading or model inferencing operations - just add the `.debug` modifier to your FDViewfinderView.
+To view debugging logs that expose error messages for project loading, model loading or model inferencing operations - just add the `.debug()` modifier to your FDViewfinderView. FieldDay logs will be prefixed with "🤖⚠️".
 ```swift
 import SwiftUI
 import FieldDay
