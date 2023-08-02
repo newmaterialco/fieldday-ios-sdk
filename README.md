@@ -34,9 +34,9 @@ There are two methods to use your FieldDay project with the iOS SDK. To get star
 FieldDay allows you to publish your project so it can be fetched over the internet. Using this method, you can ensure your project is always kept up-to-date with any changes you make. The package caches project information, so make sure to set the appropriate cache policy as per your requirements (see [Caching](#caching)).
 
 -   Tap the share button at the top right corner of the screen.
--   Select the `CoreML` option.
--   Tap "Publish Project".
--   Copy the alphanumeric Project Key that appears.
+-   Select the `Swift` tile.
+-   Scroll down to the section where it says "Share Code".
+-   Copy the alphanumeric share code that appears by tapping on the box.
 
 ### Usage
 
@@ -47,8 +47,8 @@ import FieldDay
 struct ContentView: View {
     var body: some View {
         FDViewfinderView(
-            /// Enter the Project Key that we copied from FieldDay
-            projectKey: "________________________________"
+            /// Enter the share code that we copied from FieldDay
+            shareCode: "________________________________"
         )
     }
 }
