@@ -23,8 +23,8 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .binaryTarget(
             name: "FieldDay",
-            url: "https://github.com/fieldday-ai/fieldday-ios-sdk/releases/download/0.9.7/FieldDay-0.9.7.zip",
-            checksum: "fc746e020ed1de52909c8d9a066542d8926a852e0dadf7a56aa99d006bafcaac"
+            url: "https://github.com/fieldday-ai/fieldday-ios-sdk/releases/download/1.0/FieldDay-1.0.zip",
+            checksum: "56fc185ed9d9eb7a2ebf722f35d9487ad0912a23ef295ecbefc2cf32745e1de2"
         )
     ]
 )
