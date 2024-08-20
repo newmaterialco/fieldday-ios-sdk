@@ -136,6 +136,37 @@ struct FDModelPrediction {
 -   `confidence` - The confidence of the prediction, normalized from `0...1`
 -   `results` - Contains confidence values for all categories in the model
 
+## Modify the Viewfinder
+
+### Viewfinder Size
+Use the `viewfinderSize` modifier to adjust size. This ensures the underlying camera preview is sized correctly.
+```swift
+FDViewfinderView(...)
+    .viewfinderSize(width: 200, height: 200)
+```
+
+### Viewfinder Mode
+Use the `viewfinderMode` modifier to select between `.photo` and `.video`. This selects the appropriate aspect ratio and zoom levels for the device. The SDK defaults to `.video` mode.
+```swift
+FDViewfinderView(...)
+    .viewfinderMode(.photo)
+```
+
+### Disable Model Feedback UI
+You can choose to hide the predictions UI with the `feedbackUIHidden` modifier.
+```swift
+FDViewfinderView(...)
+    .feedbackUIHidden()
+```
+
+## Prediction Smoothing
+The SDK smooths the results of the FieldDay model to reduce jitter in the results. If your model doesn't require this, or the performance doesn't match the FieldDay app, you can disable the smoothing.
+
+```swift
+FDViewfinderView(...)
+    .predictionSmoothingDisabled()
+```
+
 ## Caching
 When using project keys, FieldDay has an option to cache network data to offer limited offline functionality. By passing in a `FDCachePolicy` in the `FDViewfinderView` intializer, you can customize how the cache is used. If no policy is passed in, the default is `.cacheThenNetwork`.
 ```swift
